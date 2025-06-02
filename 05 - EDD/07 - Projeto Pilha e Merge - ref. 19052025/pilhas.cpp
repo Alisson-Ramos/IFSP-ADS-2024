@@ -3,7 +3,8 @@ using namespace std;
 
 #define MAX 30
 
-
+// Alisson Ramos
+// Davi Coelho
 struct PilhaVetor {
     int elementos[MAX];
     int topo;
