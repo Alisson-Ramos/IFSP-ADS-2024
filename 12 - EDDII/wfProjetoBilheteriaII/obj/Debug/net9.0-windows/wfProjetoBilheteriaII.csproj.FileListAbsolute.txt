@@ -1,0 +1,16 @@
+D:\02 - IFSP\12 - EDDII\wfProjetoBilheteriaII\bin\Debug\net9.0-windows\wfProjetoBilheteriaII.exe
+D:\02 - IFSP\12 - EDDII\wfProjetoBilheteriaII\bin\Debug\net9.0-windows\wfProjetoBilheteriaII.deps.json
+D:\02 - IFSP\12 - EDDII\wfProjetoBilheteriaII\bin\Debug\net9.0-windows\wfProjetoBilheteriaII.runtimeconfig.json
+D:\02 - IFSP\12 - EDDII\wfProjetoBilheteriaII\bin\Debug\net9.0-windows\wfProjetoBilheteriaII.dll
+D:\02 - IFSP\12 - EDDII\wfProjetoBilheteriaII\bin\Debug\net9.0-windows\wfProjetoBilheteriaII.pdb
+D:\02 - IFSP\12 - EDDII\wfProjetoBilheteriaII\obj\Debug\net9.0-windows\wfProjetoBilheteriaII.frmPrincipal.resources
+D:\02 - IFSP\12 - EDDII\wfProjetoBilheteriaII\obj\Debug\net9.0-windows\wfProjetoBilheteriaII.csproj.GenerateResource.cache
+D:\02 - IFSP\12 - EDDII\wfProjetoBilheteriaII\obj\Debug\net9.0-windows\wfProjetoBilheteriaII.GeneratedMSBuildEditorConfig.editorconfig
+D:\02 - IFSP\12 - EDDII\wfProjetoBilheteriaII\obj\Debug\net9.0-windows\wfProjetoBilheteriaII.AssemblyInfoInputs.cache
+D:\02 - IFSP\12 - EDDII\wfProjetoBilheteriaII\obj\Debug\net9.0-windows\wfProjetoBilheteriaII.AssemblyInfo.cs
+D:\02 - IFSP\12 - EDDII\wfProjetoBilheteriaII\obj\Debug\net9.0-windows\wfProjetoBilheteriaII.csproj.CoreCompileInputs.cache
+D:\02 - IFSP\12 - EDDII\wfProjetoBilheteriaII\obj\Debug\net9.0-windows\wfProjetoBilheteriaII.dll
+D:\02 - IFSP\12 - EDDII\wfProjetoBilheteriaII\obj\Debug\net9.0-windows\refint\wfProjetoBilheteriaII.dll
+D:\02 - IFSP\12 - EDDII\wfProjetoBilheteriaII\obj\Debug\net9.0-windows\wfProjetoBilheteriaII.pdb
+D:\02 - IFSP\12 - EDDII\wfProjetoBilheteriaII\obj\Debug\net9.0-windows\wfProjetoBilheteriaII.genruntimeconfig.cache
+D:\02 - IFSP\12 - EDDII\wfProjetoBilheteriaII\obj\Debug\net9.0-windows\ref\wfProjetoBilheteriaII.dll
