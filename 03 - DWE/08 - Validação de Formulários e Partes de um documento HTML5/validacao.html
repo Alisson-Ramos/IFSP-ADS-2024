@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Validação</title>
+</head>
+<body>
+    <header>
+        <h1>Formulário de Validação</h1>
+        <nav>
+        </nav>
+    </header>
+
+    <article>
+        <form action="recebe-validacao" method="POST" enctype="multipart/form-data">
+            <fieldset>
+                <legend>Informações do Usuário</legend>
+                <label for="upload">Carregar Arquivo:</label>
+                <input type="file" id="upload" name="upload-file">
+            </fieldset>
+
+            <fieldset>
+                <legend>Preferências</legend>
+                <label for="options">Selecione suas opções:</label>
+                <select id="options" name="options" multiple>
+                    <optgroup label="Cores">
+                        <option value="red">Vermelho</option>
+                        <option value="blue" selected>Azul</option>
+                        <option value="green">Verde</option>
+                    </optgroup>
+                    <optgroup label="Animais">
+                        <option value="dog">Cachorro</option>
+                        <option value="cat">Gato</option>
+                    </optgroup>
+                </select>
+            </fieldset>
+
+            <fieldset>
+                <legend>Acesso Rápido</legend>
+                <label for="browser">Navegador Favorito:</label>
+                <input list="browsers" id="browser" name="browser" autocomplete="on">
+                <datalist id="browsers">
+                    <option value="Chrome">
+                    <option value="Firefox">
+                    <option value="Safari">
+                    <option value="Edge">
+                    <option value="Opera">
+                </datalist>
+                <input list="browsers" id="browser2" name="browser2" autocomplete="on">
+            </fieldset>
+
+            <fieldset>
+                <legend>Dados Restritos</legend>
+                <input type="text" name="disabledInput" disabled placeholder="Campo desabilitado">
+                <input type="text" name="readOnlyInput" readonly value="Leitura apenas">
+            </fieldset>
+
+            <fieldset>
+                <legend>Validações Especiais</legend>
+                <label for="carPlate">Placa do Carro (formato AAA 1111):</label>
+                <input type="text" id="carPlate" name="carPlate" pattern="[A-Z]{3} [0-9]{4}" placeholder="AAA 1111" title="Formato AAA 1111" required>
+                <label for="cep">CEP (formato 11111-111):</label>
+                <input type="text" id="cep" name="cep" pattern="\d{5}-\d{3}" placeholder="11111-111" title="Formato 11111-111" required>
+            </fieldset>
+
+            <input type="submit" value="Enviar">
+            <input type="reset" value="Limpar">
+        </form>
+    </article>
+
+    <footer>
+    </footer>
+</body>
+</html>

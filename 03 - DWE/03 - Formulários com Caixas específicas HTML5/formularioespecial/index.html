@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade Inputs</title>
+</head>
+<body>
+    <h1>Formulário Completo</h1>
+<form action="recebe-formulario.php" method="post">
+    <div>
+        <label for="name">Nome:</label>
+        <input id="name" name="name" type="text" placeholder="Digite seu nome aqui" required>
+    </div>
+    <div>
+        <label for="email">Email:</label>
+        <input id="email" name="email" type="text" placeholder="Seu Email" required>
+    </div>
+    <div>
+        <label for="telefone">Telefone:</label>
+        <input id="telefone" name="telefone" type="text" placeholder="Seu Telefone" required>
+    </div>
+    <div>
+        <label for="site">Site:</label>
+        <input id="site" name="site" type="text" placeholder="Seu site" required>
+    </div>
+    <div>
+        <label for="nascimento">Nascimento:</label>
+        <input id="nascimento" name="nascimento" type="date" required>
+    </div>
+    <div>
+        <label for="quantidade-filhos">Quantidade de filhos:</label>
+        <input type="number" id="quantidade-filhos" name="quantidade-filhos" min="0" max="30" step="1" required>
+    </div>
+    <div>
+        <label for="temperatura">Temperatura hoje:</label>
+        <input type="number" id="temperatura" name="temperatura" min="-10" max="50" step="0.1" required>
+    </div>
+    <div>
+        <label for="hora">Hora local:</label>
+        <input id="hora" name="hora" type="time" required>
+    </div>
+    <div>
+        <label for="senha">Senha:</label>
+        <input id="senha" name="senha" type="password" placeholder="Sua Senha" required>
+    </div>
+    <div>
+        <label>Qual disciplina que você mais gosta?</label>
+        <br>
+        <input id="logica" name="disciplinas" type="radio" value="Lógica Computacional">
+        <label for="logica">Lógica Computacional</label>
+        <input id="desenvolvimento" name="disciplinas" type="radio" value="Desenvolvimento Web">
+        <label for="desenvolvimento">Desenvolvimento Web</label>
+    </div>
+    <div>
+        <label for="cor">Cor preferida:</label>
+        <input id="cor" name="cor" type="color" required>
+    </div>
+    <div>
+        <label for="mensagem">Mensagem:</label>
+        <br>
+        <textarea id="mensagem" name="mensagem" style="width: 300px; height: 100px;" required></textarea>
+    </div>
+    <div>
+        <label for="newsletter">Deixe a caixa marcada pra receber nossos e-mails</label>
+        <input type="checkbox" id="newsletter" name="newsletter" checked required>
+    </div>
+    <div>
+        <label for="parceiros">Deseja receber e-mails de parceiros?</label>
+        <input type="checkbox" id="parceiros" name="parceiros" required>
+    </div>
+
+    <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>

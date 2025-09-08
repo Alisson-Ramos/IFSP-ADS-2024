@@ -1,0 +1,34 @@
+body{
+    margin: auto;
+    background-color: rgb(230, 230, 230);
+}
+table{
+    margin: 0 auto;
+    margin-top: 5%;
+    background-color: white;
+    border-radius: 0.5rem;
+}
+thead{
+    background-color: #36304a;
+    color: white;
+    
+}
+tfoot{
+    background-color: #36304a;
+    color: white;
+}
+thead th, tfoot td {
+    border-radius: 0.2rem 0.2rem 0.2rem 0.2rem;
+    margin: 0;
+    padding: 5px;
+}
+th{
+    width: 100px;   
+}
+tbody tr:nth-child(odd) {
+    background-color: #fff; /* Cor para linhas ímpares dentro do tbody */
+}
+  
+tbody tr:nth-child(even) {
+background-color: #ccc; /* Cor para linhas pares dentro do tbody */
+}
