@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "7E52/unhAxk=",
+  "success": true,
+  "projectFilePath": "D:\\02 - IFSP\\12 - EDDII\\07 - Proj. Filas - Acessos\\acessos.mvc\\acessos.mvc.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\alisson.santos\\.nuget\\packages\\system.data.odbc\\10.0.0\\system.data.odbc.10.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
