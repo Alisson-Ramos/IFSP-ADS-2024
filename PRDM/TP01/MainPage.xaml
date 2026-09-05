@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TP01.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,50"
+            Spacing="25"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            MaximumWidthRequest="400">
+
+            <Label
+                Text="Aplicação Teste"
+                FontSize="32"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"
+                SemanticProperties.HeadingLevel="Level1" />
+
+            <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="Auto, *" RowSpacing="15" ColumnSpacing="10">
+                <Label Grid.Row="0" Grid.Column="0" Text="ID:" VerticalOptions="Center" FontAttributes="Bold" />
+                <Entry Grid.Row="0" Grid.Column="1" x:Name="IdEntry" Placeholder="Digite seu ID" />
+
+                <Label Grid.Row="1" Grid.Column="0" Text="Pass:" VerticalOptions="Center" FontAttributes="Bold" />
+                <Entry Grid.Row="1" Grid.Column="1" x:Name="PassEntry" Placeholder="Digite sua senha" IsPassword="True" />
+            </Grid>
+
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="15">
+                <Button x:Name="BtnOk" Text="Ok" Clicked="OnOkClicked" WidthRequest="100" />
+                <Button x:Name="BtnLimpar" Text="Limpar" Clicked="OnLimparClicked" WidthRequest="100" />
+            </HorizontalStackLayout>
+            
+            <Button x:Name="BtnCreditos" Text="Créditos" Clicked="OnCreditosClicked" HorizontalOptions="Center" WidthRequest="215" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
