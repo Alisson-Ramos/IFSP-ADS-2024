@@ -5,6 +5,8 @@ using System.Text;
 using LivrariaApp;
 using System;
 
+// Alisson Ramos Aquino dos Santos
+// Nayara Pereira Soares
 // 1. D) Gerar o "produto final", rodando os testes no console (Prompt)
 TestClass.RunTests();
 
