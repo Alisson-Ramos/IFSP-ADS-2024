@@ -1,0 +1,35 @@
+@{
+    ViewData["Title"] = "Sobre";
+}
+
+<h1 class="h3 titulo-pagina mb-3"><i class="bi bi-info-circle"></i> Sobre o sistema</h1>
+
+<div class="card card-formulario shadow-sm">
+    <div class="card-body">
+        <p>
+            Sistema de gerenciamento de produtos desenvolvido para o <strong>Trabalho Prático 03</strong>
+            da disciplina CBTSWE2 (IFSP – Campus Cubatão).
+        </p>
+
+        <h2 class="h6 mt-4">Tecnologias</h2>
+        <ul>
+            <li>ASP.NET Core MVC (.NET 8) – Models, Views e Controllers</li>
+            <li>Entity Framework Core 8 com SQL Server (LocalDB) e Migrations</li>
+            <li>Bootstrap 5 e Bootstrap Icons para os estilos</li>
+            <li>Validação com DataAnnotations (servidor) e jQuery Validation (navegador)</li>
+        </ul>
+
+        <h2 class="h6 mt-4">Rotas da aplicação</h2>
+        <table class="table table-sm mb-0">
+            <thead><tr><th>URL</th><th>Ação</th></tr></thead>
+            <tbody>
+                <tr><td><code>/</code> ou <code>/produtos</code></td><td>Lista de produtos (com busca e ordenação)</td></tr>
+                <tr><td><code>/produtos/novo</code></td><td>Cadastro de produto</td></tr>
+                <tr><td><code>/produtos/detalhes/{id}</code> ou <code>/produto/{id}</code></td><td>Detalhes do produto</td></tr>
+                <tr><td><code>/produtos/editar/{id}</code></td><td>Edição do produto</td></tr>
+                <tr><td><code>/produtos/excluir/{id}</code></td><td>Exclusão do produto</td></tr>
+                <tr><td><code>/home/sobre</code></td><td>Esta página</td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+<script>
+    // O jQuery Validation só entende números no formato americano (19.90).
+    // Como a aplicação está em pt-BR, ajustamos para aceitar vírgula como separador decimal
+    // (ex.: 1.234,56 ou 19,90) tanto na regra "number" quanto na regra "range".
+    (function ($) {
+        function paraNumero(valor) {
+            return parseFloat(String(valor).replace(/\./g, '').replace(',', '.'));
+        }
+
+        $.validator.methods.number = function (valor, elemento) {
+            return this.optional(elemento) || /^-?(?:\d+|\d{1,3}(?:\.\d{3})+)(?:,\d+)?$/.test(valor);
+        };
+
+        $.validator.methods.range = function (valor, elemento, parametros) {
+            var numero = paraNumero(valor);
+            return this.optional(elemento) || (numero >= parametros[0] && numero <= parametros[1]);
+        };
+    })(jQuery);
+</script>

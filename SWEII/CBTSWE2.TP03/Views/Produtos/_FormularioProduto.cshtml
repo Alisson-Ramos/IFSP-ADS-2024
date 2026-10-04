@@ -1,0 +1,35 @@
+@model Produto
+@* Campos compartilhados entre as telas de cadastro e de edição. *@
+
+<div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+
+<div class="mb-3">
+    <label asp-for="Nome" class="form-label"></label> <span class="text-danger">*</span>
+    <input asp-for="Nome" class="form-control" placeholder="Ex.: Mouse sem fio" autofocus />
+    <span asp-validation-for="Nome" class="text-danger"></span>
+</div>
+
+<div class="mb-3">
+    <label asp-for="Descricao" class="form-label"></label> <span class="text-danger">*</span>
+    <textarea asp-for="Descricao" class="form-control" rows="4" placeholder="Descreva as principais características do produto"></textarea>
+    <span asp-validation-for="Descricao" class="text-danger"></span>
+</div>
+
+<div class="row">
+    <div class="col-md-6 mb-3">
+        <label asp-for="Preco" class="form-label"></label> <span class="text-danger">*</span>
+        <div class="input-group has-validation">
+            <span class="input-group-text">R$</span>
+            <input asp-for="Preco" asp-format="{0:0.00}" class="form-control" inputmode="decimal" placeholder="0,00" />
+        </div>
+        <span asp-validation-for="Preco" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-6 mb-3">
+        <label asp-for="QuantidadeEstoque" class="form-label"></label> <span class="text-danger">*</span>
+        <input asp-for="QuantidadeEstoque" class="form-control" placeholder="0" />
+        <span asp-validation-for="QuantidadeEstoque" class="text-danger"></span>
+    </div>
+</div>
+
+<p class="small text-muted mb-0"><span class="text-danger">*</span> Campos obrigatórios</p>

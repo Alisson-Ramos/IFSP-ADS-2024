@@ -1,0 +1,27 @@
+@model Produto
+@{
+    ViewData["Title"] = "Editar produto";
+}
+
+<h1 class="h3 titulo-pagina mb-3"><i class="bi bi-pencil-square"></i> Editar produto</h1>
+
+<div class="card card-formulario shadow-sm">
+    <div class="card-body">
+        <form asp-action="Edit" asp-route-id="@Model.Id" method="post" novalidate>
+            <input type="hidden" asp-for="Id" />
+            <partial name="_FormularioProduto" model="Model" />
+
+            <div class="d-flex gap-2 mt-4">
+                <button type="submit" class="btn btn-primary">
+                    <i class="bi bi-check-lg"></i> Salvar alterações
+                </button>
+                <a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-outline-secondary">Ver detalhes</a>
+                <a asp-action="Index" class="btn btn-outline-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

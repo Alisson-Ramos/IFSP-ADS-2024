@@ -1,0 +1,133 @@
+@model IEnumerable<Produto>
+@{
+    ViewData["Title"] = "Produtos";
+    var busca = ViewData["Busca"] as string;
+    var ordem = ViewData["Ordem"] as string;
+
+    // Alterna crescente/decrescente ao clicar no cabeçalho da coluna.
+    string ProximaOrdem(string coluna) => ordem == coluna ? coluna + "_desc" : coluna;
+    string Seta(string coluna) => ordem == coluna ? "bi-caret-up-fill" : ordem == coluna + "_desc" ? "bi-caret-down-fill" : "";
+    string ordemNome = string.IsNullOrEmpty(ordem) ? "nome_desc" : "nome";
+    string setaNome = string.IsNullOrEmpty(ordem) || ordem == "nome" ? "bi-caret-up-fill" : ordem == "nome_desc" ? "bi-caret-down-fill" : "";
+}
+
+<div class="d-flex flex-wrap justify-content-between align-items-center mb-3 gap-2">
+    <h1 class="h3 titulo-pagina mb-0"><i class="bi bi-box-seam"></i> Produtos</h1>
+    <a asp-action="Create" class="btn btn-success">
+        <i class="bi bi-plus-lg"></i> Novo produto
+    </a>
+</div>
+
+<div class="row g-3 mb-4">
+    <div class="col-sm-4">
+        <div class="card card-resumo shadow-sm">
+            <div class="card-body">
+                <div class="text-muted small">Produtos listados</div>
+                <div class="valor">@Model.Count()</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="card card-resumo shadow-sm">
+            <div class="card-body">
+                <div class="text-muted small">Itens em estoque</div>
+                <div class="valor">@Model.Sum(p => p.QuantidadeEstoque).ToString("N0")</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="card card-resumo shadow-sm">
+            <div class="card-body">
+                <div class="text-muted small">Valor total em estoque</div>
+                <div class="valor">@Model.Sum(p => p.ValorEmEstoque).ToString("C")</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form asp-action="Index" method="get" class="row g-2 mb-3">
+    <div class="col-md-6">
+        <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-search"></i></span>
+            <input type="text" name="busca" value="@busca" class="form-control" placeholder="Buscar por nome ou descrição..." />
+        </div>
+    </div>
+    <input type="hidden" name="ordem" value="@ordem" />
+    <div class="col-auto">
+        <button type="submit" class="btn btn-primary">Buscar</button>
+        @if (!string.IsNullOrEmpty(busca))
+        {
+            <a asp-action="Index" class="btn btn-outline-secondary">Limpar</a>
+        }
+    </div>
+</form>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">
+        <i class="bi bi-info-circle"></i>
+        @(string.IsNullOrEmpty(busca) ? "Nenhum produto cadastrado ainda." : $"Nenhum produto encontrado para \"{busca}\".")
+        <a asp-action="Create" class="alert-link">Cadastrar um produto</a>.
+    </div>
+}
+else
+{
+    <div class="card shadow-sm">
+        <div class="table-responsive">
+            <table class="table tabela-produtos align-middle mb-0">
+                <thead>
+                    <tr>
+                        <th>
+                            <a asp-action="Index" asp-route-ordem="@ordemNome" asp-route-busca="@busca">
+                                @Html.DisplayNameFor(m => m.Nome) <i class="bi @setaNome"></i>
+                            </a>
+                        </th>
+                        <th>@Html.DisplayNameFor(m => m.Descricao)</th>
+                        <th class="text-end">
+                            <a asp-action="Index" asp-route-ordem="@ProximaOrdem("preco")" asp-route-busca="@busca">
+                                @Html.DisplayNameFor(m => m.Preco) <i class="bi @Seta("preco")"></i>
+                            </a>
+                        </th>
+                        <th class="text-center">
+                            <a asp-action="Index" asp-route-ordem="@ProximaOrdem("estoque")" asp-route-busca="@busca">
+                                Estoque <i class="bi @Seta("estoque")"></i>
+                            </a>
+                        </th>
+                        <th class="text-end">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        var corSituacao = item.QuantidadeEstoque == 0 ? "bg-danger" : item.QuantidadeEstoque <= 10 ? "bg-warning text-dark" : "bg-success";
+                        <tr>
+                            <td class="fw-semibold">@item.Nome</td>
+                            <td class="descricao-curta text-muted" title="@item.Descricao">@item.Descricao</td>
+                            <td class="text-end text-nowrap">@item.Preco.ToString("C")</td>
+                            <td class="text-center">
+                                <span class="badge @corSituacao" title="@item.SituacaoEstoque">@item.QuantidadeEstoque</span>
+                            </td>
+                            <td class="text-end text-nowrap">
+                                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary" title="Detalhes">
+                                    <i class="bi bi-eye"></i>
+                                </a>
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-warning" title="Editar">
+                                    <i class="bi bi-pencil"></i>
+                                </a>
+                                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-outline-danger" title="Excluir">
+                                    <i class="bi bi-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <p class="small text-muted mt-2">
+        <span class="badge bg-success">&nbsp;</span> Disponível
+        <span class="badge bg-warning ms-2">&nbsp;</span> Estoque baixo (até 10)
+        <span class="badge bg-danger ms-2">&nbsp;</span> Esgotado
+    </p>
+}
