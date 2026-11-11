@@ -1,0 +1,193 @@
+/*
+  PetGram — Rede social de animais
+  Trabalho Prático 04 — CBTSWE2 — ADS 671 — IFSP Campus Cubatão
+  Autores: Alisson Ramos Aquino dos Santos e Nayara Pereira Soares
+*/
+
+:root {
+  --fundo: #fafafa;
+  --cartao: #ffffff;
+  --borda: #dbdbdb;
+  --texto: #262626;
+  --texto-suave: #8e8e8e;
+  --azul: #0095f6;
+  --vermelho: #ed4956;
+  --gradiente: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--fundo);
+  color: var(--texto);
+  font: 14px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+button { font: inherit; cursor: pointer; }
+
+/* ---------- Topo ---------- */
+.topo {
+  position: sticky; top: 0; z-index: 10;
+  background: var(--cartao);
+  border-bottom: 1px solid var(--borda);
+}
+.topo-conteudo {
+  max-width: 470px; margin: 0 auto; padding: 8px 16px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.logo { font-family: "Grand Hotel", cursive; font-weight: 400; font-size: 32px; margin: 0; }
+.acoes { display: flex; gap: 12px; }
+.icone {
+  background: none; border: 0; padding: 4px; color: var(--texto);
+  display: grid; place-items: center;
+}
+.icone svg { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ---------- Layout ---------- */
+.container { max-width: 470px; margin: 0 auto; padding: 16px; }
+
+/* ---------- Stories ---------- */
+.stories {
+  display: flex; gap: 14px; overflow-x: auto;
+  background: var(--cartao); border: 1px solid var(--borda); border-radius: 8px;
+  padding: 14px 12px; margin-bottom: 16px; scrollbar-width: none;
+}
+.story { background: none; border: 0; padding: 0; width: 66px; flex: none; text-align: center; color: var(--texto); }
+.story .anel { display: block; width: 62px; height: 62px; margin: 0 auto 4px; border-radius: 50%; padding: 2px; background: var(--gradiente); }
+.story.ativo .anel { background: var(--texto); }
+.story .nome { display: block; font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.avatar {
+  display: grid; place-items: center; width: 100%; height: 100%;
+  border-radius: 50%; border: 2px solid var(--cartao);
+  background: #efefef center/cover no-repeat; font-size: 26px; overflow: hidden;
+}
+.avatar.pequeno { width: 32px; height: 32px; font-size: 16px; border: 0; flex: none; }
+
+/* ---------- Filtro ---------- */
+.filtro {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 12px; color: var(--texto-suave);
+}
+
+/* ---------- Posts ---------- */
+.post { background: var(--cartao); border: 1px solid var(--borda); border-radius: 8px; margin-bottom: 20px; }
+.post-topo { display: flex; align-items: center; gap: 10px; padding: 10px 12px; }
+.post-topo .usuario { font-weight: 600; }
+.post-topo .tempo { color: var(--texto-suave); }
+.post-topo .menu { margin-left: auto; background: none; border: 0; font-size: 20px; line-height: 1; padding: 0 4px; }
+
+.menu-opcoes {
+  position: absolute; right: 12px; top: 44px; z-index: 5;
+  background: var(--cartao); border: 1px solid var(--borda); border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.12); overflow: hidden;
+}
+.menu-opcoes button { display: block; width: 100%; padding: 10px 24px; background: none; border: 0; text-align: left; }
+.menu-opcoes button:hover { background: var(--fundo); }
+.menu-opcoes .perigo { color: var(--vermelho); font-weight: 600; }
+.post { position: relative; }
+
+.post-imagem {
+  position: relative; aspect-ratio: 1 / 1; background: #efefef;
+  display: grid; place-items: center; user-select: none; overflow: hidden;
+}
+.post-imagem img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.post-imagem .placeholder {
+  width: 100%; height: 100%; display: grid; place-items: center;
+  font-size: 120px; background: linear-gradient(135deg, #feda75 0%, #fa7e1e 35%, #d62976 70%, #962fbf 100%);
+}
+.coracao-grande {
+  position: absolute; font-size: 96px; color: #fff; opacity: 0; pointer-events: none;
+  text-shadow: 0 0 20px rgba(0,0,0,.3);
+}
+.coracao-grande.animar { animation: pulso .8s ease; }
+@keyframes pulso {
+  0% { opacity: 0; transform: scale(.3); }
+  20% { opacity: 1; transform: scale(1.15); }
+  40% { transform: scale(.95); }
+  70% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1); }
+}
+
+.post-acoes { padding: 6px 12px 0; display: flex; gap: 12px; }
+.curtir { background: none; border: 0; padding: 4px 0; font-size: 26px; line-height: 1; color: var(--texto); }
+.curtir.curtido { color: var(--vermelho); animation: bater .3s ease; }
+@keyframes bater { 50% { transform: scale(1.25); } }
+
+.post-info { padding: 4px 12px 14px; }
+.post-info .curtidas { font-weight: 600; margin: 4px 0; }
+.post-info .legenda { margin: 4px 0; white-space: pre-wrap; word-wrap: break-word; }
+.post-info .legenda strong { margin-right: 4px; }
+.hashtag { color: #00376b; cursor: pointer; }
+.hashtag:hover { text-decoration: underline; }
+
+.vazio { text-align: center; color: var(--texto-suave); padding: 48px 16px; }
+
+/* ---------- Rodapé ---------- */
+.rodape { text-align: center; color: var(--texto-suave); font-size: 12px; padding: 24px 16px 40px; }
+.rodape p { margin: 4px 0; }
+.rodape a { color: var(--azul); text-decoration: none; }
+
+/* ---------- Modais ---------- */
+.modal {
+  border: 0; border-radius: 12px; padding: 0; width: min(440px, calc(100vw - 32px));
+  color: var(--texto); box-shadow: 0 8px 32px rgba(0,0,0,.2);
+}
+.modal.largo { width: min(760px, calc(100vw - 32px)); }
+.modal::backdrop { background: rgba(0,0,0,.65); }
+.modal-topo {
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+  padding: 10px 16px; border-bottom: 1px solid var(--borda);
+}
+.modal-topo > :first-child { justify-self: start; }
+.modal-topo > :last-child { justify-self: end; }
+.modal-topo h2 { font-size: 16px; margin: 0; }
+.modal-corpo { padding: 16px; display: flex; flex-direction: column; gap: 12px; max-height: 75vh; overflow-y: auto; }
+.duas-colunas { flex-direction: row; align-items: flex-start; gap: 20px; }
+.duas-colunas > * { flex: 1; min-width: 0; }
+@media (max-width: 640px) { .duas-colunas { flex-direction: column; align-items: stretch; } }
+
+label { display: flex; flex-direction: column; gap: 4px; font-weight: 600; font-size: 13px; }
+input, select, textarea {
+  font: inherit; font-weight: 400; padding: 9px 10px;
+  border: 1px solid var(--borda); border-radius: 6px; background: var(--fundo); width: 100%;
+}
+input:focus, select:focus, textarea:focus { outline: none; border-color: var(--texto-suave); }
+textarea { resize: vertical; }
+.prefixo { display: flex; align-items: center; border: 1px solid var(--borda); border-radius: 6px; background: var(--fundo); }
+.prefixo span { padding-left: 10px; color: var(--texto-suave); font-weight: 400; }
+.prefixo input { border: 0; padding-left: 2px; }
+.contador { align-self: flex-end; color: var(--texto-suave); margin-top: -8px; }
+
+.previa { border-radius: 6px; overflow: hidden; }
+.previa img { width: 100%; max-height: 240px; object-fit: cover; display: block; }
+
+.link { background: none; border: 0; padding: 0; color: var(--texto); }
+.link.forte { color: var(--azul); font-weight: 600; }
+.botao { background: var(--azul); color: #fff; border: 0; border-radius: 8px; padding: 8px 16px; font-weight: 600; }
+.botao.secundario { background: #efefef; color: var(--texto); }
+.botoes { display: flex; justify-content: flex-end; gap: 8px; }
+
+.erros { margin: 0; padding-left: 18px; color: var(--vermelho); }
+.erros:empty { display: none; }
+
+.form-pet h3 { margin: 0 0 4px; font-size: 15px; }
+.form-pet { display: flex; flex-direction: column; gap: 10px; }
+
+.lista-pets { list-style: none; margin: 0; padding: 0; }
+.lista-pets li { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid #efefef; }
+.lista-pets .dados { flex: 1; min-width: 0; }
+.lista-pets .dados strong { display: block; }
+.lista-pets .dados small { color: var(--texto-suave); }
+.lista-pets .link { font-size: 13px; }
+.lista-pets .perigo { color: var(--vermelho); }
+
+/* ---------- Toast ---------- */
+.toast {
+  position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 20px);
+  background: var(--texto); color: #fff; padding: 10px 18px; border-radius: 8px;
+  opacity: 0; pointer-events: none; transition: .25s; max-width: calc(100vw - 32px);
+}
+.toast.visivel { opacity: 1; transform: translate(-50%, 0); }
+.toast.erro { background: var(--vermelho); }

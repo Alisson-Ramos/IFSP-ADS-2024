@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    PetGram.Core — biblioteca de classes (DLL) com as regras de negócio do PetGram.
+    Autores: Alisson Ramos Aquino dos Santos e Nayara Pereira Soares
+  -->
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>PetGram.Core</AssemblyName>
+    <RootNamespace>PetGram.Core</RootNamespace>
+    <Authors>Alisson Ramos Aquino dos Santos; Nayara Pereira Soares</Authors>
+    <Description>Regras de negócio do PetGram: validação de pets e posts, extração de hashtags e tempo relativo.</Description>
+  </PropertyGroup>
+
+</Project>

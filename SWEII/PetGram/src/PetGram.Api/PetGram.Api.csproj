@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <!--
+    PetGram.Api — Web API ASP.NET Core + página web (wwwroot).
+    Autores: Alisson Ramos Aquino dos Santos e Nayara Pereira Soares
+  -->
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>PetGram.Api</RootNamespace>
+    <Authors>Alisson Ramos Aquino dos Santos; Nayara Pereira Soares</Authors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.11" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- DLL com as regras de negócio -->
+    <ProjectReference Include="..\PetGram.Core\PetGram.Core.csproj" />
+  </ItemGroup>
+
+</Project>
